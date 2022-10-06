@@ -1,31 +1,8 @@
 <!-- 
-  Vue Exercise 1
+  Vue Exercise 2
   
-  Based on your knowledge of text interpolation, v-bind and ref(), create the Dota 2 Hero Loadout based on the information given below.
+  Based on your knowledge of list rendering, loop through the hero skills based on the info below:
 
-  Hero Name: PUDGE
-  Hero Image URL: https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png 
-  Attack Type: MELEE
-  Primary Attribute: STRENGTH
-  Primary Attribute Image URL: https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png
-
-
-  Declare reactive data for each Hero property and bind to the template
- -->
-
-<script setup>
-import { ref } from 'vue';
-let heroName = ref('PUDGE');
-let heroImageURL = ref(
-  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png'
-);
-let heroAttackType = ref('MELEE');
-let heroPrimaryAttribute = ref('STRENGTH');
-let heroPrimaryAttributeImageURL = ref(
-  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png'
-);
-
-let heroSkills = ref([
   {
     name: 'MEAT HOOK',
     description:
@@ -54,7 +31,20 @@ let heroSkills = ref([
     imgSrc:
       'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_dismember.png',
   },
-]);
+
+ -->
+
+<script setup>
+import { ref } from 'vue';
+let heroName = ref('PUDGE');
+let heroImageURL = ref(
+  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png'
+);
+let heroAttackType = ref('MELEE');
+let heroPrimaryAttribute = ref('STRENGTH');
+let heroPrimaryAttributeImageURL = ref(
+  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png'
+);
 </script>
 
 <template>
@@ -99,11 +89,32 @@ let heroSkills = ref([
         <h1 class="text-gray-400 font-semibold text-xl mt-4">ABILITIES</h1>
       </div>
       <div class="flex items-center space-x-3 mt-5">
-        <div v-for="skill in heroSkills">
+        <div>
           <img
-            :src="skill.imgSrc"
+            src="#"
             class="w-full hover:ring hover:ring-gray-500 cursor-pointer"
-            alt=""
+            alt="Hero Ability"
+          />
+        </div>
+        <div>
+          <img
+            src="#"
+            class="w-full hover:ring hover:ring-gray-500 cursor-pointer"
+            alt="Hero Ability"
+          />
+        </div>
+        <div>
+          <img
+            src="#"
+            class="w-full hover:ring hover:ring-gray-500 cursor-pointer"
+            alt="Hero Ability"
+          />
+        </div>
+        <div>
+          <img
+            src="#"
+            class="w-full hover:ring hover:ring-gray-500 cursor-pointer"
+            alt="Hero Ability"
           />
         </div>
       </div>
