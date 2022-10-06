@@ -24,6 +24,37 @@ let heroPrimaryAttribute = ref('STRENGTH');
 let heroPrimaryAttributeImageURL = ref(
   'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png'
 );
+
+let heroSkills = ref([
+  {
+    name: 'MEAT HOOK',
+    description:
+      "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge, killing it if it's a non-ancient creep and dealing damage if it is an enemy otherwise.",
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_meat_hook.png',
+  },
+  {
+    name: 'ROT',
+    description:
+      'A toxic cloud that deals intense damage and slows movement--harming not only enemy units but Pudge himself.',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png',
+  },
+  {
+    name: 'FLESH HEAP',
+    description:
+      'Gives Pudge a guaranteed damage block against all types of attack. Passively grants bonus strength that increases each time Pudge kills an enemy Hero or it dies in his vicinity.  Flesh Heap is retroactive, meaning it can gain charges before it is skilled, which then become active.',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_flesh_heap.png',
+  },
+  {
+    name: 'DISMEMBER',
+    description:
+      'CHANNELED - Pudge chows down on an enemy unit, disabling it and dealing damage over time. Pudge gets healed for the same amount he damages. Lasts longer on creeps.',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_dismember.png',
+  },
+]);
 </script>
 
 <template>
@@ -40,7 +71,9 @@ let heroPrimaryAttributeImageURL = ref(
     </div>
     <div class="bg-[#1b1f2a] p-5 rounded">
       <!-- Bind to alt attribute the Hero Name -->
-      <img class="rounded-md w-full" :src="heroImageURL" :alt="heroName" />
+      <div class="flex items-center">
+        <img class="rounded-md w-full" :src="heroImageURL" :alt="heroName" />
+      </div>
 
       <div class="flex items-center mt-3">
         <!-- Bind to alt attribute the Hero Primary Attribute -->
@@ -61,6 +94,19 @@ let heroPrimaryAttributeImageURL = ref(
       >
         {{ heroAttackType }}
       </p>
+
+      <div class="mt-4 border-t border-gray-700">
+        <h1 class="text-gray-400 font-semibold text-xl mt-4">ABILITIES</h1>
+      </div>
+      <div class="flex items-center space-x-3 mt-5">
+        <div v-for="skill in heroSkills">
+          <img
+            :src="skill.imgSrc"
+            class="w-full hover:ring hover:ring-gray-500 cursor-pointer"
+            alt=""
+          />
+        </div>
+      </div>
 
       <button
         class="
