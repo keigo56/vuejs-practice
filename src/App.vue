@@ -55,10 +55,67 @@ let heroSkills = ref([
       'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_dismember.png',
   },
 ]);
+
+const radiantHeroes = ref([
+  {
+    name: 'ANTI-MAGE',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png',
+  },
+  {
+    name: 'Alchemist',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png',
+  },
+  {
+    name: 'PUDGE',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png',
+  },
+  {
+    name: 'JUGGERNAUT',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png',
+  },
+  {
+    name: 'NECROPHOS',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png',
+  },
+]);
+
+const direHeroes = ref([
+  {
+    name: 'Invoker',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png',
+  },
+  {
+    name: 'Drow Ranger',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png',
+  },
+  {
+    name: 'Legion Commander',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png',
+  },
+  {
+    name: 'Shadow Shaman',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png',
+  },
+  {
+    name: 'Sand King',
+    imgSrc:
+      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png',
+  },
+]);
 </script>
 
 <template>
-  <div class="bg-[#1E1E1E] w-full h-screen px-10 py-10">
+  <!-- HERO LOADOUT  -->
+  <div class="bg-[#1E1E1E] w-full px-10 py-10">
     <div class="flex items-center justify-center">
       <img
         src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/dota_footer_logo.png"
@@ -124,6 +181,78 @@ let heroSkills = ref([
           <h1 class="text-gray-400 text-3xl">{{ heroName }}</h1>
         </div>
       </button>
+    </div>
+  </div>
+
+  <!-- HEROES -->
+  <div class="bg-zinc-900 pb-10">
+    <div class="flex justify-between space-x-4">
+      <!-- RADIANT HEROES -->
+      <div>
+        <div class="pl-10 py-5">
+          <h1
+            class="
+              font-[cinzel] font-semibold
+              text-xl text-green-300 text-radiant
+            "
+          >
+            THE RADIANT
+          </h1>
+        </div>
+        <div
+          class="
+            pl-10
+            flex-col flex
+            items-center
+            justify-around
+            w-full
+            space-y-2
+          "
+        >
+          <div
+            :class="radiantHero.name === heroName ? 'bg-emerald-600' : ''"
+            class="bg-[#1b1f2a] rounded p-2 cursor-pointer w-full"
+            v-for="radiantHero in radiantHeroes"
+          >
+            <img
+              class="w-full"
+              :src="radiantHero.imgSrc"
+              :alt="radiantHero.name"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- DIRE HEROES -->
+      <div>
+        <div class="px-10 py-5">
+          <h1
+            class="
+              font-[cinzel] font-semibold
+              text-xl text-red-300 text-dire text-right
+            "
+          >
+            THE DIRE
+          </h1>
+        </div>
+        <div
+          class="
+            pr-10
+            flex-col flex
+            items-center
+            justify-around
+            w-full
+            space-y-2
+          "
+        >
+          <div
+            class="bg-[#1b1f2a] rounded p-2 cursor-pointer w-full"
+            v-for="direHero in direHeroes"
+          >
+            <img class="w-full" :src="direHero.imgSrc" :alt="direHero.name" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
